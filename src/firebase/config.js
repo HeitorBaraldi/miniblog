@@ -1,14 +1,13 @@
-
 import { initializeApp } from "firebase/app";
 import {getFirestore} from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAnQi3OejmTfN8gsWuP5G1Ixp46AEWJbJA",
-  authDomain: "miniblog-936d4.firebaseapp.com",
-  projectId: "miniblog-936d4",
-  storageBucket: "miniblog-936d4.appspot.com",
-  messagingSenderId: "1088359419813",
-  appId: "1:1088359419813:web:581ffd2c610994b8dbe24c"
+  apiKey: "AIzaSyAribZUuKS6nakMqc7SFajm_YCbRSTqcrU",
+  authDomain: "miniblog-f6678.firebaseapp.com",
+  projectId: "miniblog-f6678",
+  storageBucket: "miniblog-f6678.appspot.com",
+  messagingSenderId: "209098687390",
+  appId: "1:209098687390:web:a680afe727b821cddc0c8f"
 };
 
 const app = initializeApp(firebaseConfig);
