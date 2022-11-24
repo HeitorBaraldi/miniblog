@@ -22,33 +22,22 @@ const CreatePost = () => {
     e.preventDefault();
     setFormError("");
 
+    // check values
+    if (!title || !image || !tags || !body) {
+        return setFormError("Por favor, preencha todos os campos!");
+    }
+
     // validate image
     try {
       new URL(image);
     } catch (error) {
-      setFormError("A imagem precisa ser uma URL.");
+      return setFormError("A imagem precisa ser uma URL.");
     }
 
     // create tags array
     const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
 
-    // check values
-    if (!title || !image || !tags || !body) {
-      setFormError("Por favor, preencha todos os campos!");
-    }
-
-    console.log(tagsArray);
-
-    console.log({
-      title,
-      image,
-      body,
-      tags: tagsArray,
-      uid: user.uid,
-      createdBy: user.displayName,
-    });
-
-    if(formError) return
+     if(formError) return
 
     insertDocument({
       title,
@@ -73,7 +62,7 @@ const CreatePost = () => {
           <input
             type="text"
             name="text"
-            required
+            
             placeholder="Pense num bom título..."
             onChange={(e) => setTitle(e.target.value)}
             value={title}
@@ -84,7 +73,7 @@ const CreatePost = () => {
           <input
             type="text"
             name="image"
-            required
+            
             placeholder="Insira uma imagem que representa seu post"
             onChange={(e) => setImage(e.target.value)}
             value={image}
@@ -94,7 +83,7 @@ const CreatePost = () => {
           <span>Conteúdo:</span>
           <textarea
             name="body"
-            required
+            
             placeholder="Insira o conteúdo do post"
             onChange={(e) => setBody(e.target.value)}
             value={body}
@@ -105,7 +94,7 @@ const CreatePost = () => {
           <input
             type="text"
             name="tags"
-            required
+            
             placeholder="Insira as tags separadas por vírgula"
             onChange={(e) => setTags(e.target.value)}
             value={tags}
